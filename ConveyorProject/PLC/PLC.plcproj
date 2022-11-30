@@ -32,6 +32,9 @@
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\SignalTower.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\StartButton.TcPOU">
       <SubType>Code</SubType>
     </Compile>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="SignalTower" Id="{1bc1d9f1-4b08-4753-811a-6c0cb149c74c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK SignalTower
+VAR
+	ledRed		: LedLamp;
+	ledGreen	: LedLamp;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="SetStateOP" Id="{ac0a33a4-85c0-4eb1-b53f-4bfb796657d7}">
+      <Declaration><![CDATA[METHOD SetStateOP
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[ledRed.Off();
+ledGreen.On();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SetStateSTOP" Id="{7ff2222a-d190-4541-bdae-d3f3a35b03b1}">
+      <Declaration><![CDATA[METHOD SetStateSTOP
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[ledRed.On();
+ledGreen.Off();]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
