@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="LedLamp" Id="{3fdc688c-187e-4867-8a23-fcd2f38403ef}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK LedLamp
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	output AT %Q* : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Property Name="IsOff" Id="{3d50d815-2c1d-4f69-bd5f-d5cf14c05e56}">
+      <Declaration><![CDATA[PROPERTY IsOff : BOOL]]></Declaration>
+      <Get Name="Get" Id="{a27671c2-1dca-49f2-a356-5aa69b09b24c}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IsOff := NOT output;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="IsOn" Id="{aec8a761-94b2-4bd0-82a2-5b083fb52d2c}">
+      <Declaration><![CDATA[PROPERTY IsOn : BOOL]]></Declaration>
+      <Get Name="Get" Id="{212606ac-f0fd-42b8-9919-30c789c4546e}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IsOn := output;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="Off" Id="{f2cced46-62eb-4e4b-bd14-f54621011151}">
+      <Declaration><![CDATA[METHOD Off
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[output := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="On" Id="{ab28f0e6-37ba-45ff-af1b-15e2119b2b0e}">
+      <Declaration><![CDATA[METHOD On
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[output := TRUE;]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
