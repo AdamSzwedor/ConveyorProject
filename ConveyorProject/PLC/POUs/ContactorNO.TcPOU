@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="ContactorNO" Id="{2cbc9b42-ed95-4499-ad75-c76cb1ff34f7}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK ContactorNO
+VAR
+	output AT %Q* : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Close" Id="{45ceba98-10de-4d40-81eb-8bf49e4e83a8}">
+      <Declaration><![CDATA[METHOD Close
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[output := TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="IsClosed" Id="{ace5800f-0eee-4e61-8b2b-a5a26202c429}">
+      <Declaration><![CDATA[PROPERTY IsClosed : BOOL]]></Declaration>
+      <Get Name="Get" Id="{d5af05ec-0857-4b64-9d9b-1078ca905116}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IsClosed := output;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="IsOpen" Id="{de4f1fae-f444-44e6-b5c7-c0c86b30509a}">
+      <Declaration><![CDATA[PROPERTY IsOpen : BOOL]]></Declaration>
+      <Get Name="Get" Id="{29a8cf54-8a94-4e28-ab17-0655aae8c4dd}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IsOpen := NOT output;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="Open" Id="{e843bc73-797c-4f41-8c7e-9b985c691d2f}">
+      <Declaration><![CDATA[METHOD Open
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[output := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
