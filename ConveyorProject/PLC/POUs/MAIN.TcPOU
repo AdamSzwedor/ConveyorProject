@@ -3,10 +3,23 @@
   <POU Name="MAIN" Id="{c893af56-82c6-43a2-a7ff-57a3ef97d3b2}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+	motor	 	: ACMotor;
+	changeTimer : TON;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[changeTimer(IN := changeTimer.Q, PT := T#10S);
+
+IF changeTimer.Q THEN
+	
+	IF motor.IsMoving THEN
+		motor.Stop();
+	ELSE
+		motor.Start();
+	END_IF
+	
+END_IF]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
