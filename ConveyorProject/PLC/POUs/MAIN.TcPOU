@@ -6,10 +6,13 @@ VAR
 	motor	 	: ACMotor;
 	changeTimer : TON;
 
+	startButton		: StartButton;
+	signalTower		: SignalTower;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[changeTimer(IN := changeTimer.Q, PT := T#10S);
+A_SignalTowerLogic();
 
 IF changeTimer.Q THEN
 	
@@ -21,5 +24,18 @@ IF changeTimer.Q THEN
 	
 END_IF]]></ST>
     </Implementation>
+    <Action Name="A_SignalTowerLogic" Id="{d71d4796-a2a9-4af4-b62b-87964cd33e4e}">
+      <Implementation>
+        <ST><![CDATA[IF startButton.IsPressed THEN
+	signalTower.SetStateOP();
+ELSE
+	signalTower.SetStateSTOP();
+END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="MAIN">
+      <LineId Id="27" Count="10" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
