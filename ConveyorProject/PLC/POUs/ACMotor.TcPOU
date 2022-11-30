@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="ACMotor" Id="{18b835c4-e8ec-487b-8a92-cd68cf60248b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK ACMotor
+VAR
+	moveContactor : ContactorNO;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Property Name="IsMoving" Id="{91f61c3e-0fcd-44f7-b290-388e366d0c01}">
+      <Declaration><![CDATA[PROPERTY IsMoving : BOOL]]></Declaration>
+      <Get Name="Get" Id="{e49b438c-fba6-458c-b140-94eaf0057913}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IsMoving := moveContactor.IsClosed;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="Start" Id="{cc77df1d-29c6-466e-99ad-a6f75d0501e3}">
+      <Declaration><![CDATA[METHOD Start
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[moveContactor.Close();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Stop" Id="{5374ec64-6cb3-4288-b860-f298d3e560fb}">
+      <Declaration><![CDATA[METHOD Stop
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[moveContactor.Open();
+]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
