@@ -3,28 +3,37 @@
   <POU Name="MAIN" Id="{c893af56-82c6-43a2-a7ff-57a3ef97d3b2}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	motor	 	: ACMotor;
-	changeTimer : TON;
-
-	startButton		: StartButton;
-	signalTower		: SignalTower;
+	motor	 			: ACMotor;
+	motorChangeTimer 	: TON;
+	
+	startButton			: StartButton;
+	signalTower			: SignalTower;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[changeTimer(IN := changeTimer.Q, PT := T#10S);
-A_SignalTowerLogic();
+      <ST><![CDATA[MotionLogic();
+SignalTowerLogic();
+]]></ST>
+    </Implementation>
+    <Method Name="MotionLogic" Id="{2193b283-ee17-414b-be29-95a0081b03c1}">
+      <Declaration><![CDATA[METHOD MotionLogic]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[motorChangeTimer(IN := motorChangeTimer.Q, PT := T#10S);
 
-IF changeTimer.Q THEN
-	
+IF motorChangeTimer.Q THEN
 	IF motor.IsMoving THEN
 		motor.Stop();
 	ELSE
 		motor.Start();
 	END_IF
-	
 END_IF]]></ST>
-    </Implementation>
-    <Action Name="A_SignalTowerLogic" Id="{d71d4796-a2a9-4af4-b62b-87964cd33e4e}">
+      </Implementation>
+    </Method>
+    <Method Name="SignalTowerLogic" Id="{42ff7a04-4492-40ce-b4e2-ee240cf33ede}">
+      <Declaration><![CDATA[METHOD SignalTowerLogic
+VAR_INPUT
+END_VAR
+]]></Declaration>
       <Implementation>
         <ST><![CDATA[IF startButton.IsPressed THEN
 	signalTower.SetStateOP();
@@ -32,10 +41,6 @@ ELSE
 	signalTower.SetStateSTOP();
 END_IF]]></ST>
       </Implementation>
-    </Action>
-    <LineIds Name="MAIN">
-      <LineId Id="27" Count="10" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
+    </Method>
   </POU>
 </TcPlcObject>
