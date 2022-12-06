@@ -1,4 +1,4 @@
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <FileVersion>1.0.0.0</FileVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -42,9 +42,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\SignalTower.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\ButtonNO.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
