@@ -26,6 +26,12 @@
     <Compile Include="POUs\Buttons\Button.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Buttons\ButtonNO.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Buttons\ButtonNC.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\ContactorNO.TcPOU">
       <SubType>Code</SubType>
     </Compile>
