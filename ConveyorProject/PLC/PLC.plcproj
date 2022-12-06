@@ -23,6 +23,9 @@
     <Compile Include="POUs\ACMotor.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Buttons\Button.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\ContactorNO.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -42,6 +45,7 @@
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
+    <Folder Include="POUs\Buttons" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>
