@@ -6,7 +6,7 @@ VAR
 	motor	 			: ACMotor;
 	motorChangeTimer 	: TON;
 	
-	startButton			: StartButton;
+	startButton			: ButtonNO;
 	signalTower			: SignalTower;
 END_VAR
 ]]></Declaration>
@@ -18,15 +18,21 @@ SignalTowerLogic();
     <Method Name="MotionLogic" Id="{2193b283-ee17-414b-be29-95a0081b03c1}">
       <Declaration><![CDATA[METHOD MotionLogic]]></Declaration>
       <Implementation>
-        <ST><![CDATA[motorChangeTimer(IN := motorChangeTimer.Q, PT := T#10S);
-
-IF motorChangeTimer.Q THEN
-	IF motor.IsMoving THEN
+        <ST><![CDATA[IF startButton.IsPressed THEN
+	motorChangeTimer(
+		IN := NOT motorChangeTimer.Q,
+		PT := T#10S);
+	
+	IF motorChangeTimer.Q AND_THEN motor.IsMoving THEN
 		motor.Stop();
-	ELSE
+	ELSIF motorChangeTimer.Q THEN
 		motor.Start();
 	END_IF
-END_IF]]></ST>
+ELSE
+	motorChangeTimer(IN := FALSE);
+	motor.Stop();
+END_IF
+]]></ST>
       </Implementation>
     </Method>
     <Method Name="SignalTowerLogic" Id="{42ff7a04-4492-40ce-b4e2-ee240cf33ede}">
