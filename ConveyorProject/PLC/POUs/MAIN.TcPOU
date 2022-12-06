@@ -6,7 +6,7 @@ VAR
 	motor	 			: ACMotor;
 	motorChangeTimer 	: TON;
 	
-	startButton			: StartButton;
+	startButton			: ButtonNC;
 	signalTower			: SignalTower;
 END_VAR
 ]]></Declaration>
