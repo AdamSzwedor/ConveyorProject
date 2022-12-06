@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="ButtonNO" Id="{593d0c36-a778-4d44-b389-505244cedeb5}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK ButtonNO
+  <POU Name="ButtonNC" Id="{3e3211aa-f658-4283-830b-d1464a00a171}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK ButtonNC EXTENDS Button
 VAR
 	input AT %I* : BOOL;
 END_VAR
@@ -9,25 +9,25 @@ END_VAR
     <Implementation>
       <ST><![CDATA[]]></ST>
     </Implementation>
-    <Property Name="IsPressed" Id="{9d839024-b65a-4ac9-af8e-8dd66e30aabb}">
+    <Property Name="IsPressed" Id="{8ca30260-2150-4264-8ab6-f1ec95f60bc3}">
       <Declaration><![CDATA[PROPERTY IsPressed : BOOL]]></Declaration>
-      <Get Name="Get" Id="{c882a1d8-fd95-4f7c-9833-b6b07ceec2d0}">
+      <Get Name="Get" Id="{b9e1107d-adf6-4b28-a350-8cb0ca0076fb}">
         <Declaration><![CDATA[VAR
 END_VAR
 ]]></Declaration>
         <Implementation>
-          <ST><![CDATA[IsPressed := input;]]></ST>
+          <ST><![CDATA[IsPressed := NOT input;]]></ST>
         </Implementation>
       </Get>
     </Property>
-    <Property Name="IsReleased" Id="{0b008a41-96ec-4b7e-84e4-d431771c7175}">
+    <Property Name="IsReleased" Id="{009371a7-3770-477f-ad31-4edbccc7be49}">
       <Declaration><![CDATA[PROPERTY IsReleased : BOOL]]></Declaration>
-      <Get Name="Get" Id="{adcd4b1c-2ed5-4aa7-9f23-40d8650a980a}">
+      <Get Name="Get" Id="{41573aa6-e79b-4204-89cf-62dae66aac19}">
         <Declaration><![CDATA[VAR
 END_VAR
 ]]></Declaration>
         <Implementation>
-          <ST><![CDATA[IsReleased := NOT input;]]></ST>
+          <ST><![CDATA[IsReleased := input;]]></ST>
         </Implementation>
       </Get>
     </Property>

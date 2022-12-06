@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Button" Id="{542591d4-41ca-44f4-bb69-3cd3f83d3355}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK ABSTRACT Button
+VAR
+	input AT %I* : BOOL;
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Property Name="State" Id="{c6b560a3-8daa-4eb4-b2d0-2c9676cc730e}">
+      <Declaration><![CDATA[PROPERTY PUBLIC State : BOOL]]></Declaration>
+      <Get Name="Get" Id="{660acae3-730e-4913-a5e7-94294b5faed6}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[state := input;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+  </POU>
+</TcPlcObject>
